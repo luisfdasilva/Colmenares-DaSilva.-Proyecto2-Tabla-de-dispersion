@@ -82,6 +82,26 @@ public class HashTable {
         return table[index].buscar(document);
     }
     
+    /*Devuelve la clave de un documento al pasarselo*/
+     public int KeyHashDocument(Document document) {
+        int index = hashFunction(document);
+        if (table[index].buscar(document)){
+            return index;
+        }
+        return -1;
+    }
+     
+     /*Busca por titulo y devuelve un string con clave y codigo*/
+     public String KeyHashCodDocument(String titulo) {
+        Document doc = new Document(titulo);
+        int index = hashFunction(doc);
+        if (table[index].buscar2(doc) != -1) {
+            return "Clave: " + index +", Codigo: " + table[index].buscar2(doc) + "Titulo: " + titulo;
+           
+        }
+        return null;
+    }
+    
     /* Método para obtener un documento por título */
     public Document getDocument(String title) {
         Document dummyDoc = new Document(title, "", "", "");
@@ -98,6 +118,15 @@ public class HashTable {
             currentNode = currentNode.getPnext();
         }
         return null;
+    }
+    
+    public boolean HashisEmpty(){
+        for (int i=0;i<size;i++){
+            if(table[i].getpFirst()!=null){
+                return false;
+            }
+        }
+        return true;
     }
     
     /* Método para eliminar un documento por título */
@@ -129,4 +158,45 @@ public class HashTable {
             }
         }
     }
+    
+    /*Muestra un documento al darle su clave y codigo */
+    public Document getDocumentByKeyCod(int key, int cod){
+        Document doc = (Document) table[key].getValor(cod); 
+        return doc;
+    }
+    
+    /* Comprueba si la lista en esa posicion del hashtable contiene ya un documento*/
+     public boolean keyInHash(int key){
+        return table[key].getSize() != 0;
+    }
+     
+    /*Retorna un string con la clave, codigo y titulo de los documentos hechos por ese autor*/ 
+     public String getDocumentsByAuthor(String author) {
+        String documentsByAuthor = "";
+
+        for (int i = 0; i < size; i++) {
+            ListaSimple list = table[i];
+            Nodo currentNode = list.getpFirst();
+            
+            int count = 0;
+
+            while (currentNode != null) {
+                Document doc = (Document) currentNode.getDato();
+                String[] authorsArray = doc.getAuthors().split("\n");
+
+                for (String docAuthor : authorsArray) {
+                    if (docAuthor.equalsIgnoreCase(author)) {
+                        documentsByAuthor += "Clave: " + i +", Codigo: "+ count +", Titulo: "+ doc.getTitle() + "\n";
+                        break;
+                    }
+                }
+                count += 1;
+                currentNode = currentNode.getPnext();
+            }
+        }
+
+        return documentsByAuthor;
+    }
+
+
 }

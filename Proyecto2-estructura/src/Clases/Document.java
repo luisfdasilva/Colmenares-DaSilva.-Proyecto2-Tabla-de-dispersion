@@ -19,6 +19,15 @@ public class Document {
         this.summaryBody = summaryBody;
         this.keyWords = keyWords;
     }
+    
+     public Document(String title) {
+        this.title = title;
+        this.authors = null;
+        this.summaryBody = null;
+        this.keyWords = null;
+    }
+
+    
 
     public String getTitle() {
         return title;
@@ -56,4 +65,11 @@ public class Document {
     public boolean compareDocuments(Document document) {
         return document.getTitle().equalsIgnoreCase(this.title) && document.getAuthors().equalsIgnoreCase(this.authors);
     }
+
+    @Override
+    public String toString() {
+        return "Titulo: " + title+"\n" + "\n Autores:" + authors + "\n Resumen:\n" + summaryBody + "\n\n, Palabras Claves: \n" + keyWords;
+    }
+    
+     
 }

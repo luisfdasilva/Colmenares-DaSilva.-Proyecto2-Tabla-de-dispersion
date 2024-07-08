@@ -12,13 +12,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author Moises Liota
+ * @author eliocolmenares
  */
 public class FunctionTxt {
-
+    /*Extrae con strings y listas si son palabras separadas o personas para luego devolver Documento */
     public Document cargar_documento(String txt1) {
         ListaSimple listautores = new ListaSimple();
         ListaSimple listpalabras_claves = new ListaSimple();
@@ -32,7 +33,7 @@ public class FunctionTxt {
             listautores.InsertarFinal(autor.trim());
         }
 
-        String cuerpo = devision_info[2].trim().split("\n")[1].trim();
+        String cuerpo = devision_info[2].trim().split("\n")[0].trim();
         String[] palabras_claves = devision_info[2].trim().split("\n")[devision_info[2].trim().split("\n").length - 1].split(":")[1].split(",");
         for (String palabra : palabras_claves) {
             listpalabras_claves.InsertarFinal(palabra.trim().replaceAll("\\.", ""));
@@ -43,7 +44,8 @@ public class FunctionTxt {
 
         return new Document(titulo, autor, cuerpo, palabrasClaves);
     }
-
+    
+    /*Ingresa el documento en el hash */
     public void cargar_HashTable(ListaSimple list1, Document document, HashTable tabla) {
         Nodo aux = list1.getpFirst();
         boolean encontrado = false;
@@ -58,9 +60,9 @@ public class FunctionTxt {
         if (!encontrado) {
             list1.InsertarFinal(document.getTitle());
             tabla.insertDocument(document);
-            System.out.println("Documento cargado");
+            JOptionPane.showMessageDialog(null, "Documento Cargado");
         } else {
-            System.out.println("Ya existe");
+            JOptionPane.showMessageDialog(null, "Ya existe el documento", "AVISO", 0);
         }
     }
     
