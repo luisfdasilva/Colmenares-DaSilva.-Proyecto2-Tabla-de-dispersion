@@ -5,8 +5,7 @@
 package Ventanas;
 
 /**
- *
- * @author eliocolmenares
+ * * @author eliocolmenares
  */
 public class Bienvenida extends javax.swing.JFrame {
 

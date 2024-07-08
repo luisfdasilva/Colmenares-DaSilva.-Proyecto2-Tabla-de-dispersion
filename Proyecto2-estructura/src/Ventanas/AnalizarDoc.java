@@ -13,8 +13,7 @@ import static Ventanas.Menu.lista;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author eliocolmenares
+ * * @author eliocolmenares
  */
 public class AnalizarDoc extends javax.swing.JFrame {
 

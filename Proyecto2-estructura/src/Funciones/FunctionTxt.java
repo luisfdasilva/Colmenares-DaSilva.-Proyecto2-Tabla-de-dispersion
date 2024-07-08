@@ -15,11 +15,12 @@ import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author eliocolmenares
+ * * @author eliocolmenares
  */
 public class FunctionTxt {
-    /*Extrae con strings y listas si son palabras separadas o personas para luego devolver Documento */
+    /**
+    * * Extrae con strings y listas si son palabras separadas o personas para luego devolver Documento
+    */
     public Document cargar_documento(String txt1) {
         ListaSimple listautores = new ListaSimple();
         ListaSimple listpalabras_claves = new ListaSimple();
@@ -44,7 +45,9 @@ public class FunctionTxt {
 
         return new Document(titulo, autor, cuerpo, palabrasClaves);
     }
-    
+    /**
+    * * Ingresa el documento en el hash
+    */
     /*Ingresa el documento en el hash */
     public void cargar_HashTable(ListaSimple list1, Document document, HashTable tabla) {
         Nodo aux = list1.getpFirst();

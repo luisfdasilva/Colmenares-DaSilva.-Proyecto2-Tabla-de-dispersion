@@ -15,8 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author eliocolmenares
+ * * @author eliocolmenares
  */
 public class Cargar extends javax.swing.JFrame {
 

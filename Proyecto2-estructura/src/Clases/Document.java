@@ -5,7 +5,7 @@
 package Clases;
 
 /**
- * * @author luis
+ * * @author luis,eliocolmenares
  */
 public class Document {
     private String title;

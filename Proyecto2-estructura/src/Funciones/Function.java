@@ -15,11 +15,12 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 /**
- *
- * @author eliocolmenares
+ * * @author eliocolmenares,luis
  */
 public class Function {
-
+    /**
+    * * La función crea un String con todos los autores que aparecen en la HashTable
+    */
     /* La función crea un String con todos los autores que aparecen en la HashTable */
     public ListaSimple getAllAuthors(HashTable tabla) {
         ListaSimple autors = new ListaSimple();
@@ -71,12 +72,16 @@ public class Function {
    }
 
 
-    
+    /**
+    * * Recibe un String de los autores y lo convierte en un arreglo, donde cada posición es un autor
+    */
     /* Recibe un String de los autores y lo convierte en un arreglo, donde cada posición es un autor */
     public String[] createAuthorsArray(String autores) {
         return autores.split("\n");
     }
-
+    /**
+    * * Crea un String con la información de un documento. Recibe la clave única del documento
+    */
     /* Crea un String con la información de un documento. Recibe la clave única del documento */
     public String showDocument(HashTable tabla, int index) {
         ListaSimple list = tabla.getTable()[index];
@@ -91,7 +96,9 @@ public class Function {
         }
         return null;
     }
-
+    /**
+    * * Genera un String con la clave y el título de cada documento almacenado en la HashTable
+    */
     /* Genera un String con la clave y el título de cada documento almacenado en la HashTable */
     public String showAllDocuments(HashTable tabla) {
         StringBuilder info = new StringBuilder();
@@ -120,13 +127,17 @@ public class Function {
         }
         return info.toString();
     }
-
+    /**
+    * * Crea un arreglo de String, donde cada espacio es una palabra clave de un documento
+    */
     /* Crea un arreglo de String, donde cada espacio es una palabra clave de un documento */
     public String[] createKeyArray(String keyWords) {
         return keyWords.split(",");
     }
     
-    
+    /**
+    * * Cuenta la cantidad de veces que se repiten las palabras clave dentro de un documento
+    */
     /* Cuenta la cantidad de veces que se repiten las palabras clave dentro de un documento */
     public String contKeyWords(String[] keyWords, String body) {
     StringBuilder cont = new StringBuilder();
@@ -160,7 +171,9 @@ public class Function {
         }
         return cont.toString();
     } 
-    
+    /**
+    * * Ordena y crea un String con la información de un documento, para su análisis
+    */
          /* Ordena y crea un String con la información de un documento, para su análisis */
     public String getInformationToAnalyze(Document doc) {
         StringBuilder information = new StringBuilder(doc.getTitle().toUpperCase()).append("\n \n").append("Autores: ").append(doc.getAuthors()).append("\n \n");
@@ -168,7 +181,9 @@ public class Function {
         information.append(contKeyWords(keys, doc.getSummaryBody()));
         return information.toString();
     }
-    
+    /**
+    * * Ordena por orden alfabetico una lista de titulos para mostrarlos
+    */
      /* Ordena por orden alfabetico una lista de titulos para mostrarlos */
     public ListaSimple AscendenteTitulo(ListaSimple list) {
         if (!list.EsVacio()) {

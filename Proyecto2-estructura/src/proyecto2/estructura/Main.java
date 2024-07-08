@@ -9,8 +9,7 @@ import EDD.HashTable;
 import Ventanas.Bienvenida;
 
 /**
- *
- * @author luis
+ * * @author luis
  */
 public class Main {
 

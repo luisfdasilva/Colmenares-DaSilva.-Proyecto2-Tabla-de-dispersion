@@ -7,8 +7,7 @@ package EDD;
 import Clases.Document;
 
 /**
- *
- * @author luis
+ * * @author luis,eliocolmenares
  */
 public class HashTable {
     private int size;
@@ -21,28 +20,28 @@ public class HashTable {
     }
 
     /**
-     * @return the size
+     * *@return the size
      */
     public int getSize() {
         return size;
     }
 
     /**
-     * @param size the size to set
+     * *@param size the size to set
      */
     public void setSize(int size) {
         this.size = size;
     }
 
     /**
-     * @return the table
+     * *@return the table
      */
     public ListaSimple[] getTable() {
         return table;
     }
 
     /**
-     * @param table the table to set
+     * *@param table the table to set
      */
     public void setTable(ListaSimple[] table) {
         this.table = table;
@@ -53,7 +52,9 @@ public class HashTable {
             table[i] = new ListaSimple();
         }
     }
-
+    /**
+     * *Función hash que genera una clave única a partir del nombre de un documento
+     */
     /* Función hash que genera una clave única a partir del nombre de un documento */
     public int hashFunction(Document document) {
         String title = document.getTitle();
@@ -63,7 +64,9 @@ public class HashTable {
         }
         return Math.abs(index % this.getSize());
     }
-
+    /**
+     * *Inserta en la HashTable un documento en la posición que indique la clave única
+     */
     /* Inserta en la HashTable un documento en la posición que indique la clave única */
     public void insertDocument(Document document) {
         int index = hashFunction(document);
@@ -75,13 +78,17 @@ public class HashTable {
             System.out.println("¡ERROR! El documento ya está registrado");
         }
     }
-
+    /**
+     * *Verifica si un documento ya existe en la HashTable
+     */
     /* Verifica si un documento ya existe en la HashTable */
     public boolean isInHash(Document document) {
         int index = hashFunction(document);
         return table[index].buscar(document);
     }
-    
+    /**
+     * *Devuelve la clave de un documento al pasarselo
+     */
     /*Devuelve la clave de un documento al pasarselo*/
      public int KeyHashDocument(Document document) {
         int index = hashFunction(document);
@@ -90,7 +97,9 @@ public class HashTable {
         }
         return -1;
     }
-     
+    /**
+     * *Busca por titulo y devuelve un string con clave y codigo
+     */ 
      /*Busca por titulo y devuelve un string con clave y codigo*/
      public String KeyHashCodDocument(String titulo) {
         Document doc = new Document(titulo);
@@ -101,7 +110,9 @@ public class HashTable {
         }
         return null;
     }
-    
+    /**
+     * *Método para obtener un documento por título
+     */
     /* Método para obtener un documento por título */
     public Document getDocument(String title) {
         Document dummyDoc = new Document(title, "", "", "");
@@ -128,7 +139,9 @@ public class HashTable {
         }
         return true;
     }
-    
+    /**
+     * *Método para eliminar un documento por título
+     */
     /* Método para eliminar un documento por título */
     public void removeDocument(String title) {
         Document dummyDoc = new Document(title, "", "", "");
@@ -148,7 +161,9 @@ public class HashTable {
         }
         System.out.println("Documento " + title + " no encontrado");
     }
-    
+    /**
+     * *Mostrar todos los documentos en la tabla hash
+     */
     /* Mostrar todos los documentos en la tabla hash */
     public void displayAllDocuments() {
         for (int i = 0; i < size; i++) {
@@ -158,18 +173,24 @@ public class HashTable {
             }
         }
     }
-    
+    /**
+     * *Muestra un documento al darle su clave y codigo
+     */
     /*Muestra un documento al darle su clave y codigo */
     public Document getDocumentByKeyCod(int key, int cod){
         Document doc = (Document) table[key].getValor(cod); 
         return doc;
     }
-    
+    /**
+     * *Comprueba si la lista en esa posicion del hashtable contiene ya un documento
+     */
     /* Comprueba si la lista en esa posicion del hashtable contiene ya un documento*/
      public boolean keyInHash(int key){
         return table[key].getSize() != 0;
     }
-     
+    /**
+     * *Retorna un string con la clave, codigo y titulo de los documentos hechos por ese autor
+     */ 
     /*Retorna un string con la clave, codigo y titulo de los documentos hechos por ese autor*/ 
      public String getDocumentsByAuthor(String author) {
         String documentsByAuthor = "";

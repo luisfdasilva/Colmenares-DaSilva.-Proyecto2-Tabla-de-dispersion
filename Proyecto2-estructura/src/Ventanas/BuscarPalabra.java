@@ -12,8 +12,7 @@ import static Ventanas.Menu.hashTable;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author eliocolmenares
+ * * @author eliocolmenares
  */
 public class BuscarPalabra extends javax.swing.JFrame {
 

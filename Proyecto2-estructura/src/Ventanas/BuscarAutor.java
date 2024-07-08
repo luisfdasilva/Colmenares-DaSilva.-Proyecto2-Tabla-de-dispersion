@@ -15,8 +15,7 @@ import javax.swing.JOptionPane;
 
 
 /**
- *
- * @author eliocolmenares
+ * * @author eliocolmenares
  */
 public class BuscarAutor extends javax.swing.JFrame {
 

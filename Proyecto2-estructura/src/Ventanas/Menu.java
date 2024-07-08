@@ -8,8 +8,7 @@ import EDD.HashTable;
 import EDD.ListaSimple;
 
 /**
- *
- * @author eliocolmenares
+ * * @author eliocolmenares
  */
 
 
